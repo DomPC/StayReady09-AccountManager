@@ -22,10 +22,10 @@ public class MainApplication
     {
         System.out.println("Welcome to the Bank of Allen, select the following options: ");
 
-        System.out.println("1) Create an Account");
-        System.out.println("2) Login to your account");
-        System.out.println("3) Created Accounts ");
-        System.out.println("4) Exit ATM");
+        System.out.println("1) Create your Account");
+        System.out.println("2) Log in to your Account");
+        System.out.println("3) Existing Accounts ");
+        System.out.println("4) Leave ATM");
 
         int inputNumber = scan.nextInt();
 
@@ -41,7 +41,7 @@ public class MainApplication
                 listMyAccounts();
                 break;
             case 4:
-                System.out.println("Come again!");
+                System.out.println("See you next time!");
                 break;
         }
     }
@@ -50,13 +50,13 @@ public class MainApplication
     {
         if(accounts.size() == 0)
         {
-            System.out.println("No accounts created, going back to main menu");
+            System.out.println("No existing accounts detected.");
             System.out.println();
             mainMenu();
         }
         else
         {
-            System.out.println("These are your accounts");
+            System.out.println("Displaying your current accounts...");
             System.out.println(accounts);
             System.out.println();
 
@@ -66,12 +66,12 @@ public class MainApplication
 
     public void createAccount()
     {
-        System.out.println("Welcome, since you are new here, create an account!");
+        System.out.println("Hello, please create an account.");
 
         System.out.println("1) Checking Account");
         System.out.println("2) Savings Account");
         System.out.println("3) Business Account");
-        System.out.println("4) Back to Menu / Exit");
+        System.out.println("4) Return to Menu / Exit");
 
         int inputNumber = scan.nextInt();
         switch(inputNumber)
@@ -98,36 +98,36 @@ public class MainApplication
 
     public void createCheckingAccount()
     {
-        System.out.println("Awesome! Now enter the information below: ");
+        System.out.println("Please enter the information below: ");
         System.out.println("Enter your name");
         String name = scan.next();
 
         System.out.println("Create your account number");
         int acctNumber = scan.nextInt();
 
-        System.out.println("Password for account: ");
+        System.out.println("Designate your password for the account: ");
         String password = scan.next();
 
-        System.out.println("What will your first deposit be?");
+        System.out.println("Designate amount for your first deposit");
         double initalDeposit = scan.nextDouble();
 
         BankAccount checkingAccount = new CheckingAccount(name, password, acctNumber, initalDeposit);
 
         accounts.add(checkingAccount);
 
-        System.out.println("Your account has been successfully created! Returning to Main Menu");
+        System.out.println("Account has been successfully created! Returning to Main Menu...");
         mainMenu();
     }
 
     public void createSavingsAccount()
     {
-        System.out.println("Enter your name: ");
+        System.out.println("Name: ");
         String name = scan.next();
 
         System.out.println("Create your account number");
         int acctNumber = scan.nextInt();
 
-        System.out.println("Password for account: ");
+        System.out.println("Designate passoword for account: ");
         String password = scan.next();
 
         System.out.println("What will your first deposit be?");
@@ -195,7 +195,7 @@ public class MainApplication
 
     public void loginChoices()
     {
-        System.out.println("Welcome! Here is a list of options to chose from");
+        System.out.println("Greetings, please select one of the following:");
 
         System.out.println("1) Deposit");
         System.out.println("2) Withdraw");
@@ -233,7 +233,7 @@ public class MainApplication
 
     public void logout()
     {
-        System.out.println("You have logged out, goodbye");
+        System.out.println("Successfully logged out, goodbye");
         currentAccountIndex = 0;
         mainMenu();
     }
